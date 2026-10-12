@@ -1,4 +1,4 @@
-//ma3apcmini mk2 action buttons v1.0.6 by ArtGateOne
+//ma3apcmini mk2 action buttons v1.0.7 by ArtGateOne
 
 var easymidi = require('easymidi');
 var osc = require('osc')
@@ -338,11 +338,6 @@ function light_executor(note, status, color) {
     if (status == 1) {
       channel = executor_fx;
       velocity = getClosestVelocity(color);
-      output.send("noteon", {
-        note: note,
-        velocity: velocity,
-        channel: channel,
-      });
       output.send('noteon', { note: note, velocity: velocity, channel: channel });
     } else if (status == 0){
       output.send('noteon', { note: note, velocity: 0, channel: 0 });
